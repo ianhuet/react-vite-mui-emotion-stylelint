@@ -1,0 +1,4 @@
+parser: postcss-styled-syntax
+map: true
+plugins:
+  postcss-plugin: {}

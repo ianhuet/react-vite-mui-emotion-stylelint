@@ -1,0 +1,14 @@
+---
+extends:
+- stylelint-config-standard
+plugins:
+- stylelint-order
+rules:
+  declaration-property-value-no-unknown: true
+  order/properties-alphabetical-order: true
+overrides:
+- customSyntax: "postcss-styled-syntax"
+  files:
+  - "**/*.tsx"
+  rules:
+    media-query-no-invalid: null
