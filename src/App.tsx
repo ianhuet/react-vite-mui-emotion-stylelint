@@ -53,7 +53,6 @@ const makeObjectStyles = (theme: Theme): SerialisedStylesObject => {
 
 const makeTemplateLiteralStyles = (theme: Theme) => {
   return {
-    // '1.5em',
     logo: css`
       height: 6em;
       padding: 2em;
@@ -91,8 +90,11 @@ export function App() {
   const styles = makeObjectStyles(theme)
   const altStyles = makeTemplateLiteralStyles(theme)
 
-  const card = css({
-    padding: '2em',
+  const layout = css({
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '48px',
+    justifyContent: 'space-between',
   })
   const readTheDocs = css`
     color: 'readTheDocs.invalid';
@@ -105,7 +107,7 @@ export function App() {
     <>
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} css={css(styles.logo)} alt="Vite logo" />
+          <img src={viteLogo} css={styles.logo} alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} css={reactLogoStyles} alt="React logo" />
@@ -114,46 +116,53 @@ export function App() {
 
       <h1>Vite + React</h1>
 
-      <h2>Individual Styles</h2>
-      <div css={card}>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p css={readTheDocs}>
-        Click on the Vite and React logos to learn more
-      </p>
-      <hr />
+      <div css={layout}>
+        <div>
+          <h2>Individual Styles</h2>
+          <div css={{ padding: '2em' }}>
+            <button onClick={() => setCount((count) => count + 1)}>
+              count is {count}
+            </button>
+            <p>
+              Edit <code>src/App.tsx</code> and save to test HMR
+            </p>
+          </div>
+          <p css={readTheDocs}>
+            Click on the Vite and React logos to learn more
+          </p>
+        </div>
 
-      <h2>Utils.cssProps Styles</h2>
-      <div css={styles.card}>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p css={styles.readTheDocs}>
-        Click on the Vite and React logos to learn more
-      </p>
-      <hr />
+        <div>
+          <h2>Utils.cssProps Styles</h2>
+          <div css={styles.card}>
+            <button onClick={() => setCount((count) => count + 1)}>
+              count is {count}
+            </button>
+            <p>
+              Edit <code>src/App.tsx</code> and save to test HMR
+            </p>
+          </div>
+          <p css={styles.readTheDocs}>
+            Click on the Vite and React logos to learn more
+          </p>
+        </div>
 
-      <h2>CSS Object Styles</h2>
-      <div css={altStyles.card}>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <div>
+          <h2>CSS Object Styles</h2>
+          <div css={altStyles.card}>
+            <button onClick={() => setCount((count) => count + 1)}>
+              count is {count}
+            </button>
+            <p>
+              Edit <code>src/App.tsx</code> and save to test HMR
+            </p>
+          </div>
+          <p css={altStyles.readTheDocs}>
+            Click on the Vite and React logos to learn more
+          </p>
+        </div>
       </div>
-      <p css={altStyles.readTheDocs}>
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
